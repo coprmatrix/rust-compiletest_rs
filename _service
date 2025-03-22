@@ -1,5 +1,13 @@
 <services>
   <service name="rust2rpm" mode="manual">
     <param name="pkgid">compiletest_rs</param>
+    <!--param name="patch">enable</param-->
+  </service>
+  <service name="perl_regex" mode="manual">
+    <param name="file">rust-compiletest_rs.spec</param>
+    <param name="regex">
+if ($. == 1) { 
+  $_ = $_ . "\n" . "Patch1: compiletest_rs-fix-metadata.diff\n"; 
+}   </param>
   </service>
 </services>
